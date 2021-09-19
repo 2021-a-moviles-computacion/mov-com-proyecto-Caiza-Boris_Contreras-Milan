@@ -1,73 +1,72 @@
 package com.example.replicacionimdb.ui.adapters
 
-import android.os.Bundle
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.replicacionimdb.DetallePelicula
 import com.example.replicacionimdb.R
 import com.example.replicacionimdb.ui.clases.Pelicula
 
-class PeliculaAdapter (
 
-    val mList: List<Pelicula>,
-    val parentFragment: NavController
-
-): RecyclerView.Adapter<PeliculaAdapter.ViewPagerViewHolder>(){
-    inner class ViewPagerViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+class PeliculaAdapter(private var lista: ArrayList<Pelicula>, val contexto: Context) : RecyclerView.Adapter<PeliculaAdapter.ViewHolder>() {
 
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewPagerViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pelicula,parent,false)
-        return ViewPagerViewHolder(view)
-    }
+    inner class ViewHolder( var vista: View) : RecyclerView.ViewHolder(vista) {
 
-    override fun getItemCount(): Int {
-        return mList.size
-    }
-
-    override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
-        val curmList = mList[position]
-
-        val portadaImg =  holder.itemView.findViewById<ImageView>(R.id.Iv_pelicula_portada)
-        portadaImg.setImageResource(curmList.ImagePortada)
+        var imagen:ImageView
+        val calificacion:TextView
 
 
-        val calificacionPelicula =  holder.itemView.findViewById<TextView>(R.id.Tv_nombre_persona)
-        calificacionPelicula.text = curmList.Calificacion
+        init {
+            imagen = vista.findViewById(R.id.Iv_pelicula_portada)
+            calificacion = vista.findViewById(R.id.Tv_calificacion_pelicula)
 
-        val tituloPelicula =  holder.itemView.findViewById<TextView>(R.id.Tv_nombre_persona_pelicula)
-        tituloPelicula.text = curmList.Title
 
-        val infoPelicula =  holder.itemView.findViewById<TextView>(R.id.Tv_informacion)
-        infoPelicula.text = curmList.Descripcion
 
-        val pelicula =  holder.itemView.findViewById<ConstraintLayout>(R.id.constraint_pelicula)
-
-        pelicula.setOnClickListener{
-            var bundle = Bundle()
-            bundle.putString("Titulo",curmList.Title)
-            bundle.putString("Descripcion",curmList.Descripcion)
-            bundle.putInt("Portada",curmList.ImagePortada)
-            bundle.putInt("Trailer",curmList.ImageTrailer)
-            bundle.putString("Sinopsis",curmList.Sinopsis)
-            bundle.putString("Director",curmList.Director)
-            bundle.putString("Guionistas",curmList.Guionistas)
-            bundle.putString("Ano",curmList.Ano)
-            bundle.putString("Calificacion",curmList.Calificacion)
-
-            bundle.putStringArrayList("Categorias",curmList.Categorias)
-            bundle.putParcelableArrayList("Reparto",curmList.Actores)
-            parentFragment.navigate(R.id.navigation_actividadDetallePelicula,bundle)
         }
 
 
     }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_pelicula,parent,false)
+        return ViewHolder(itemView)
+    }
+
+    override fun getItemCount(): Int {
+        return lista.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val pelicula = lista[position]
+        holder.imagen.setImageResource(pelicula.ImagePortada)
+        holder.calificacion.text = pelicula.Calificacion
+
+        //////Imagen
+        holder.imagen.setOnClickListener{
+            contexto.startActivity(Intent(contexto, DetallePelicula::class.java).putExtra("pel",pelicula) )
+
+        }
+        //////Titulo
+        /* holder.titulo.setOnClickListener{
+             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
+         }
+         //ImagenCertificado
+         holder.imagen_certificado.setOnClickListener{
+             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
+         }
+         //Certificado
+         holder.certificado.setOnClickListener{
+             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
+         }*/
+
+
+    }
+
+
+
 }

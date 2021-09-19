@@ -14,7 +14,7 @@
 
     <style name="bottomNavStyle" parent="">
         <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
-        <item name="colorPrimary">@color/amarillo</item>
+        <item name="colorPrimary">@color/verde</item>
         <item name="colorOnPrimary">@color/black</item>
     </style>
 

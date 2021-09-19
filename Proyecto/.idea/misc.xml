@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/drawable/tab_color.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_detalle_pel.xml" value="0.15" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_detalle_pelicula.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_iniciar_sesion.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_login.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_registrarse.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/activity_registrarse_por.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/fragment_actividad_detalle_pelicula.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/fragment_dashboard.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/fragment_notifications.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/fragment_profile.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/item_buscar.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/item_categoria.xml" value="0.1" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/item_exhibicion_hoy.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/item_pelicula.xml" value="0.4" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/item_persona.xml" value="0.1" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/layout/slide_item.xml" value="0.1828125" />
+        <entry key="..\:/Users/Boris/Desktop/Septimo Semestre/Aplicaciones Moviles/Proyecto/mov-com-proyecto-Caiza-Boris_Contreras-Milan/Proyecto/app/src/main/res/menu/bottom_nav_menu.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

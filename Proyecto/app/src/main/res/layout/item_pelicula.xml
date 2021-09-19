@@ -4,101 +4,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraint_pelicula"
-    android:layout_width="150dp"
-    android:layout_height="340dp"
-    android:layout_margin="4dp"
-    android:background="@drawable/round_corner"
-    tools:layout_editor_absoluteX="4dp"
-    tools:layout_editor_absoluteY="4dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
 
-    <com.google.android.material.imageview.ShapeableImageView
+
+
+    <ImageView
         android:id="@+id/Iv_pelicula_portada"
-        android:layout_width="151dp"
-        android:layout_height="227dp"
-        android:scaleType="fitStart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="160dp"
+        android:layout_height="197dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-
-        app:shapeAppearanceOverlay="@style/roundImage"
-        app:srcCompat="@drawable/pl_p_house_of_gucci" />
-
-    <TextView
-        android:id="@+id/Tv_nombre_persona"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="calificacion"
-        android:textAlignment="textEnd"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/Tv_nombre_persona_pelicula"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="nombre"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <TextView
-        android:id="@+id/Tv_informacion"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="info"
-        android:textColor="@color/grisLetras"
-        android:textSize="10sp"
-        app:layout_constraintEnd_toEndOf="@+id/Tv_nombre_persona_pelicula"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Tv_nombre_persona_pelicula"
-        app:layout_constraintTop_toBottomOf="@+id/Tv_nombre_persona_pelicula" />
+        app:srcCompat="@drawable/pl_p_black_widow" />
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="23dp"
         android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Iv_pelicula_portada"
-        app:layout_constraintVertical_bias="0.034"
+
+        app:layout_constraintEnd_toEndOf="@+id/Iv_pelicula_portada"
+        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintStart_toStartOf="@+id/Iv_pelicula_portada"
+        app:layout_constraintTop_toTopOf="@+id/Iv_pelicula_portada"
         app:srcCompat="@drawable/ic_baseline_star_rate_24"
-        app:tint="@color/amarillo" />
+        app:tint="@color/verde" />
 
-    <ImageButton
-        android:id="@+id/btn_anadirLista"
-        android:layout_width="42dp"
-        android:layout_height="59dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_bookmark_3_foreground" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="20dp"
+    <TextView
+        android:textColor="@color/verde"
+        android:id="@+id/Tv_calificacion_pelicula"
+        android:layout_width="35dp"
         android:layout_height="20dp"
-        android:background="#00FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_anadirLista"
-        app:layout_constraintEnd_toEndOf="@+id/btn_anadirLista"
-        app:layout_constraintHorizontal_bias="0.409"
-        app:layout_constraintStart_toStartOf="@+id/btn_anadirLista"
-        app:layout_constraintTop_toTopOf="@+id/btn_anadirLista"
-        app:layout_constraintVertical_bias="0.41"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/Iv_pelicula_portada"
+        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintStart_toStartOf="@+id/Iv_pelicula_portada"
+        app:layout_constraintTop_toTopOf="@+id/Iv_pelicula_portada" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

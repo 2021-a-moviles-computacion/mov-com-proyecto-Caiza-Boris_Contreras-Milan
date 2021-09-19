@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "300128983553",
+    "project_id": "proyecto-moviles-96301",
+    "storage_bucket": "proyecto-moviles-96301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300128983553:android:24366ec9b6b826fd68fe00",
+        "android_client_info": {
+          "package_name": "com.example.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300128983553-rb6imnvr2mca0jd5ukbp2j4v02gvt7gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdIOO4SE4MowKavelHxgl54tOZ6Um2lt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300128983553-rb6imnvr2mca0jd5ukbp2j4v02gvt7gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300128983553:android:fc438235e03cc5b568fe00",
+        "android_client_info": {
+          "package_name": "com.example.replicacionimdb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300128983553-rb6imnvr2mca0jd5ukbp2j4v02gvt7gf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdIOO4SE4MowKavelHxgl54tOZ6Um2lt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300128983553-rb6imnvr2mca0jd5ukbp2j4v02gvt7gf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

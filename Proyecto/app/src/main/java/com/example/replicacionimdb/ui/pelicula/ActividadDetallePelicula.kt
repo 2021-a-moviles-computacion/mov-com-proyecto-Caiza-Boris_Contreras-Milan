@@ -65,6 +65,8 @@ class ActividadDetallePelicula : Fragment(
             repartoData=it.getParcelableArrayList("Reparto")
 
         }
+
+
         //Nombre pelicula
         var titulo1 = root.findViewById<TextView>(R.id.textView7)
         titulo1.text = tituloData

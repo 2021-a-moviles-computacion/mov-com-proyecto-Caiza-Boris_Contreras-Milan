@@ -79,11 +79,13 @@ class HomeFragment : Fragment() {
 
 
         //Peliculas
-        val peliculasAdapter = PeliculaAdapter(generarPeliculas(),findNavController())
+        val context = container!!.context
 
-        var PeliculasRV = root.findViewById<RecyclerView>(R.id.rv_Peliculas)
-        PeliculasRV.adapter = peliculasAdapter
-        PeliculasRV.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL, false)
+        var recyclerPelicula = root.findViewById<RecyclerView>(R.id.rv_Peliculas)
+        recyclerPelicula.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        recyclerPelicula.adapter = PeliculaAdapter(generarPeliculas(),context)
 
 
 

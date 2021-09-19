@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/bpimagen"
+        android:layout_width="185dp"
+        android:layout_height="234dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pl_p_interstellar" />
+
+    <TextView
+        android:id="@+id/bptvtitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/bpimagen"
+        app:layout_constraintStart_toEndOf="@+id/bpimagen"
+        app:layout_constraintTop_toTopOf="@+id/bpimagen"
+        app:layout_constraintVertical_bias="0.106" />
+
+    <TextView
+        android:id="@+id/bptvcalificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@color/verde"
+        app:layout_constraintEnd_toEndOf="@+id/bptvtitulo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/bptvtitulo"
+        app:layout_constraintTop_toBottomOf="@+id/bptvtitulo" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

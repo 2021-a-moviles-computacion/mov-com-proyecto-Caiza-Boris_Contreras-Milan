@@ -10,8 +10,16 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.replicacionimdb.databinding.ActivityMainBinding
+import com.google.firebase.firestore.FirebaseFirestore
+
+enum class ProviderType{
+    BASIC,
+    GOOGLE
+}
 
 class MainActivity : AppCompatActivity() {
+
+
 
     private lateinit var binding: ActivityMainBinding
 
@@ -19,6 +27,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val bundle = intent.extras
+        val correo  = bundle?.getString("email")
+        val provider2  = bundle?.getString("provider")
+        val db  = FirebaseFirestore.getInstance()
+
+        db.collection("usuario").document(correo.toString())
+            .set(
+                hashMapOf("correo" to correo.toString(),
+                    "provider" to provider2.toString())
+            )
+
+
 
         val navView: BottomNavigationView = binding.navView
 
