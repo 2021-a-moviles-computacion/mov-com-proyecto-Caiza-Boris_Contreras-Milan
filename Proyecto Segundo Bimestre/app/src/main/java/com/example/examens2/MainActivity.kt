@@ -8,6 +8,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.examens2.databinding.ActivityMainBinding
+enum class ProviderType{
+    BASIC,
+    GOOGLE
+}
 
 class MainActivity : AppCompatActivity() {
 
