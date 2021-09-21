@@ -47,10 +47,7 @@ class DashboardFragment : Fragment() {
         recyclerBusquedaPelicula.layoutManager = LinearLayoutManager(context)
 
         // recyclerStraming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
-        recyclerBusquedaPelicula.addItemDecoration(
-            DividerItemDecoration(context,
-                DividerItemDecoration.VERTICAL)
-        )
+        recyclerBusquedaPelicula.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         recyclerBusquedaPelicula.adapter = AdaptadorPeliculaBusqueda(generarPeliculas(),context)
         return root
     }
