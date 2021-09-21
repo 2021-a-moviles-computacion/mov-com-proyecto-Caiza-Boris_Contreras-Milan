@@ -13,6 +13,8 @@ import com.example.login.ui.clases.Pelicula
 import com.example.login.ui.clases.Persona
 import com.example.login.databinding.FragmentHomeBinding
 import com.example.login.ui.adaptadores.AdaptadorPelicula
+import com.example.login.ui.adaptadores.ViewPagerAdapter2
+import com.example.login.ui.clases.Slide
 
 class HomeFragment : Fragment() {
 
@@ -33,22 +35,76 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-
-
-        ////Peliculas
         val context = container!!.context
-        var recyclerPelicula = root.findViewById<RecyclerView>(R.id.home_rv_pelicula)
+
+
+
+        ////Slider
+
+        var recyclerPelicula = root.findViewById<RecyclerView>(R.id.rvSlider2)
 
 
         recyclerPelicula.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.HORIZONTAL, false)
         // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        recyclerPelicula.adapter = AdaptadorPelicula(generarPeliculas(),context)
+        recyclerPelicula.adapter = ViewPagerAdapter2(generarSlider(),context)
+
+
+        //Pelicula
+        var recyclerSldier = root.findViewById<RecyclerView>(R.id.home_rv_pelicula)
+
+
+        recyclerSldier.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        recyclerSldier.adapter = AdaptadorPelicula(generarPeliculas(),context)
+
+
+        //Pelcula2
+
+        var recyclerPelicula2 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula2)
+
+
+        recyclerPelicula2.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        recyclerPelicula2.adapter = AdaptadorPelicula(generarPeliculas(),context)
+
+
+        //Pelcula3
+
+        var recyclerPelicular3 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula3)
+
+
+        recyclerPelicular3.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        recyclerPelicular3.adapter = AdaptadorPelicula(generarPeliculas(),context)
 
 
         return root
     }
+
+
+    private fun generarSlider():ArrayList<Slide>{
+        var lista = ArrayList<Slide>()
+
+        lista.add(
+            Slide(
+                R.drawable.pl_t_pulp_fiction,
+
+            )
+        )
+
+        lista.add(
+            Slide(
+                R.drawable.pl_t_a_clockwork_orange,
+
+            )
+        )
+        return  lista
+    }
+
 
     private fun generarPeliculas():ArrayList<Pelicula>{
         var lista = ArrayList<Pelicula>()

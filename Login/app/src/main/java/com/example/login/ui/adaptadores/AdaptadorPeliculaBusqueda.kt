@@ -34,7 +34,7 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<Pelicula>, val cont
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.busquedapelicula,parent,false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.itembusquedapelicula,parent,false)
         return ViewHolder(itemView)
     }
 
