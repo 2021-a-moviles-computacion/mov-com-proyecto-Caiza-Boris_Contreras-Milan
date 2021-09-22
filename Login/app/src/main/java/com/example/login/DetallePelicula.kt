@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login.ui.adaptadores.PersonaAdapter
 import com.example.login.ui.clases.Pelicula
+import org.w3c.dom.Text
 
 class DetallePelicula : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +23,21 @@ class DetallePelicula : AppCompatActivity() {
 
         var imagen = findViewById<ImageView>(R.id.dpivimagen)
         imagen.setImageResource(pelicula.ImagePortada)
+
+        var titulo = findViewById<TextView>(R.id.dpTvTitulo)
+        titulo.setText(pelicula.Title)
+
+        var anio = findViewById<TextView>(R.id.dpTvAnio)
+        anio.setText(pelicula.Ano)
+
+        var clasificacion = findViewById<TextView>(R.id.dpTvClasificacion)
+        clasificacion.setText(pelicula.Clasificacion)
+
+        var duracion = findViewById<TextView>(R.id.dpTvDuracion)
+        duracion.setText(pelicula.Duracion)
+
+        var sinopsis = findViewById<TextView>(R.id.dpTvSinopsis)
+        sinopsis.setText(pelicula.Sinopsis)
 
         var reparto = findViewById<RecyclerView>(R.id.recyclerView2)
         reparto.adapter = PersonaAdapter(pelicula.Actores)

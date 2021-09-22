@@ -21,9 +21,11 @@ class AdaptadorPelicula(private var lista: ArrayList<Pelicula>, val contexto: Co
         val calificacion: TextView
 
 
+
         init {
             imagen = vista.findViewById(R.id.elpIvPelicula)
             calificacion = vista.findViewById(R.id.tv_calificacion)
+
 
 
 
@@ -44,6 +46,7 @@ class AdaptadorPelicula(private var lista: ArrayList<Pelicula>, val contexto: Co
         val pelicula = lista[position]
         holder.imagen.setImageResource(pelicula.ImagePortada)
         holder.calificacion.text = pelicula.Calificacion
+
 
         //////Imagen
         holder.imagen.setOnClickListener{

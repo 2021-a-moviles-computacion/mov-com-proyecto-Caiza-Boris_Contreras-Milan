@@ -7,15 +7,26 @@
     tools:context=".ui.dashboard.DashboardFragment"
     android:background="@color/black">
 
+    <SearchView
+        android:id="@+id/svbusqueda"
+        android:layout_width="347dp"
+        android:layout_height="88dp"
+        android:searchIcon="@drawable/buscador"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:theme="@style/SearchViewStyle" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fdrvbusquedapeliculas"
-        android:layout_width="413dp"
-        android:layout_height="473dp"
-        android:layout_marginTop="172dp"
+        android:layout_width="402dp"
+        android:layout_height="552dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

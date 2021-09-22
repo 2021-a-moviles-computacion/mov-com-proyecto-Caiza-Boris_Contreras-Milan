@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -18,6 +19,8 @@ import com.example.login.ui.clases.Pelicula
 import com.example.login.ui.clases.Persona
 
 class DashboardFragment : Fragment() {
+
+    var sear: SearchView ?=null
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private var _binding: FragmentDashboardBinding? = null
@@ -37,10 +40,13 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        //searchview
 
 
         val context = container!!.context
 
+        /*sear = root.findViewById(R.id.svbusqueda)
+        sear!!.setOnQueryTextListener(this)*/
         //////////////Peliculas
         var recyclerBusquedaPelicula = root.findViewById<RecyclerView>(R.id.fdrvbusquedapeliculas)
 
@@ -67,7 +73,8 @@ class DashboardFragment : Fragment() {
                 "Pulp Fiction",
                 "8.9",
                 "1994",
-                "1994 R 2h 34min",
+                "  R ",
+                "2h 34min",
                 "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
                 "Quentin Tarantino",
                 "Quentin Tarantino(stories by) Roger Avary(stories by)",
@@ -90,7 +97,8 @@ class DashboardFragment : Fragment() {
                 "Interstellar",
                 "8.6",
                 "2014",
-                "2014 PG-13 2h 49min",
+                "PG-13",
+                "2h 49min",
                 "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
                 "Christopher Nolan",
                 "Jonathan Nolan Christopher Nolan",
@@ -113,7 +121,8 @@ class DashboardFragment : Fragment() {
                 "The Notebook",
                 "7.8",
                 "2004",
-                "2004 PG-13 2h 3min",
+                "PG-13",
+                "2h 3min",
                 "A poor yet passionate young man falls in love with a rich young woman, giving her a sense of freedom, but they are soon separated because of their social differences.",
                 "Nick Cassavetes",
                 "Jeremy Leven(screenplay) Jan Sardi(adaptation) Nicholas Sparks(novel)",
@@ -137,7 +146,8 @@ class DashboardFragment : Fragment() {
                 "A Clockwork Orange",
                 "8.3",
                 "1971",
-                "1971 R 2h 16min",
+                "  R  ",
+                "2h 16min",
                 "In the future, a sadistic gang leader is imprisoned and volunteers for a conduct-aversion experiment, but it doesn't go as planned. ",
                 "Stanley Kubrick",
                 "Stanley Kubrick(screenplay) Anthony Burgess(novel)",
@@ -159,7 +169,8 @@ class DashboardFragment : Fragment() {
                 "The Matrix",
                 "8.7",
                 "1999",
-                "1999 R 2h 16min",
+                "  R  ",
+                "2h 16min",
                 "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
                 "Lilly Wachowski Lana Wachowski",
                 "Lilly Wachowski Lana Wachowski",
@@ -419,4 +430,12 @@ class DashboardFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    /*override fun onQueryTextSubmit(query: String?): Boolean {
+
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+
+    }*/
 }
