@@ -123,7 +123,57 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="66dp">
+                android:layout_height="66dp"
+              >
+
+                <TextView
+                    android:id="@+id/dpTvCalificacion"
+                    android:layout_width="31dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textColor="@color/verde"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="39dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginTop="16dp"
+                    android:text="/10"
+                    android:textColor="#A4A4A4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                    app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="146dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="44dp"
+                    android:drawableStart="@drawable/mas"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:text="Añadir a mi lista"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.47"
+                    app:strokeColor="@color/white" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -155,6 +205,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/separador" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Donde ver"
+                android:paddingLeft="20dp"
+                android:textSize="25dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dpRvDondeVer"
+                android:layout_width="match_parent"
+                android:layout_height="278dp" />
 
         </LinearLayout>
     </ScrollView>

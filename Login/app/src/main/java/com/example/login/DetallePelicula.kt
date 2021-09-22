@@ -7,7 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.login.ui.adaptadores.AdaptadorDondeVer
 import com.example.login.ui.adaptadores.PersonaAdapter
+import com.example.login.ui.clases.DondeVer
 import com.example.login.ui.clases.Pelicula
 import org.w3c.dom.Text
 
@@ -39,9 +41,24 @@ class DetallePelicula : AppCompatActivity() {
         var sinopsis = findViewById<TextView>(R.id.dpTvSinopsis)
         sinopsis.setText(pelicula.Sinopsis)
 
+        var calificacion = findViewById<TextView>(R.id.dpTvCalificacion)
+        calificacion.setText(pelicula.Calificacion)
+
         var reparto = findViewById<RecyclerView>(R.id.recyclerView2)
         reparto.adapter = PersonaAdapter(pelicula.Actores)
         reparto.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
+
+        var dondeVer = findViewById<RecyclerView>(R.id.dpRvDondeVer)
+        dondeVer.adapter = AdaptadorDondeVer(dondeVer(),this)
+        dondeVer.layoutManager = LinearLayoutManager(this,
+            LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    fun dondeVer():ArrayList<DondeVer>{
+        var lista = ArrayList<DondeVer>()
+        lista.add(DondeVer(R.drawable.netflixlogo,"Netflix"))
+        lista.add(DondeVer(R.drawable.logodisney,"Disney +"))
+        return  lista
     }
 }
