@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrarsePor"
+    android:background="@color/black"
    >
 
 
@@ -35,11 +36,15 @@
 
     <Button
         android:id="@+id/googleBoton"
-        android:layout_width="241dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="80dp"
-        android:drawableStart="@drawable/logogoogle"
+        android:layout_width="319dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="48dp"
         android:text="Google"
+        app:layout_constraintEnd_toEndOf="@+id/aiccrearCuenta"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/aiccrearCuenta"
+        app:layout_constraintTop_toBottomOf="@+id/aiccrearCuenta" />
+    //app:icon="@drawable/google"
         app:layout_constraintEnd_toEndOf="@+id/aiccrearCuenta"
         app:layout_constraintStart_toStartOf="@+id/aiccrearCuenta"
         app:layout_constraintTop_toBottomOf="@+id/aiccrearCuenta" />

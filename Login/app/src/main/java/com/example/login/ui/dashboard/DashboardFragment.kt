@@ -1,9 +1,7 @@
 package com.example.login.ui.dashboard
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -17,10 +15,16 @@ import com.example.login.databinding.FragmentDashboardBinding
 import com.example.login.ui.adaptadores.AdaptadorPeliculaBusqueda
 import com.example.login.ui.clases.Pelicula
 import com.example.login.ui.clases.Persona
+import java.util.*
+import kotlin.collections.ArrayList
 
 class DashboardFragment : Fragment() {
 
-    var sear: SearchView ?=null
+    private var sear: SearchView ?=null
+    private lateinit var listatem: ArrayList<Pelicula>
+    private lateinit var newArrayList: ArrayList<Pelicula>
+    lateinit var recyclerBusquedaPelicula:RecyclerView
+
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private var _binding: FragmentDashboardBinding? = null
@@ -48,14 +52,50 @@ class DashboardFragment : Fragment() {
         /*sear = root.findViewById(R.id.svbusqueda)
         sear!!.setOnQueryTextListener(this)*/
         //////////////Peliculas
-        var recyclerBusquedaPelicula = root.findViewById<RecyclerView>(R.id.fdrvbusquedapeliculas)
+        recyclerBusquedaPelicula = root.findViewById<RecyclerView>(R.id.fdrvbusquedapeliculas)
 
         recyclerBusquedaPelicula.layoutManager = LinearLayoutManager(context)
 
         // recyclerStraming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
+       // generarPeliculas().forEach {
+           // newArrayList.add(it)
+       // }
+        //listatem.addAll(generarPeliculas())
         recyclerBusquedaPelicula.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         recyclerBusquedaPelicula.adapter = AdaptadorPeliculaBusqueda(generarPeliculas(),context)
+
         return root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu,menu)
+        val item = menu?.findItem(R.id.search_action)
+        val searchview = item?.actionView as SearchView
+        searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+              listatem.clear()
+                val searchText = newText!!.toLowerCase(Locale.getDefault())
+                if (searchText.isNotEmpty()){
+
+                    newArrayList.forEach {
+                        if(it.Title!!.toLowerCase(Locale.getDefault()).contains(searchText)){
+                            listatem.add(it)
+                        }
+                    }
+                    recyclerBusquedaPelicula.adapter!!.notifyDataSetChanged()
+                }else{
+                    listatem.clear()
+                    listatem.addAll(newArrayList)
+                    recyclerBusquedaPelicula.adapter!!.notifyDataSetChanged()
+                }
+                return false
+            }
+        })
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     private fun generarPeliculas():ArrayList<Pelicula>{

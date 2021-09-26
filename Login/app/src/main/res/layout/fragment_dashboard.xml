@@ -7,16 +7,6 @@
     tools:context=".ui.dashboard.DashboardFragment"
     android:background="@color/black">
 
-    <SearchView
-        android:id="@+id/svbusqueda"
-        android:layout_width="347dp"
-        android:layout_height="88dp"
-        android:searchIcon="@drawable/buscador"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:theme="@style/SearchViewStyle" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fdrvbusquedapeliculas"
         android:layout_width="395dp"
@@ -32,14 +22,13 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="Lo más buscado"
         android:textColor="@color/white"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/svbusqueda" />
+        tools:layout_editor_absoluteY="100dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
