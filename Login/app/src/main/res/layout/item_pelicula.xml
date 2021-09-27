@@ -15,16 +15,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pl_p_interstellar" />
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="122dp"
+        android:layout_height="90dp"
+        app:layout_constraintEnd_toEndOf="@+id/elpIvPelicula"
+        app:layout_constraintStart_toStartOf="@+id/elpIvPelicula"
+        app:layout_constraintTop_toTopOf="@+id/elpIvPelicula"
+        app:srcCompat="@drawable/gradient_bg" />
+
     <TextView
         android:id="@+id/tv_calificacion"
-        android:layout_width="28dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="42dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-black"
         android:text="TextView"
         android:textColor="@color/verde"
-        android:textSize="15dp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,10 +41,11 @@
         android:id="@+id/imageView3"
         android:layout_width="20dp"
         android:layout_height="17dp"
-        android:layout_marginBottom="148dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_calificacion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_calificacion"
         app:srcCompat="@drawable/ic_baseline_star_rate_24"
         app:tint="@color/verde" />
 </androidx.constraintlayout.widget.ConstraintLayout>

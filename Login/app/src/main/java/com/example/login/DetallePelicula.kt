@@ -1,7 +1,6 @@
 package com.example.login
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,18 +11,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.login.ui.adaptadores.AdaptadorDondeVer
 import com.example.login.ui.adaptadores.PersonaAdapter
+import com.example.login.ui.clases.ActorFireBase
 import com.example.login.ui.clases.DondeVer
-import com.example.login.ui.clases.Pelicula
 import com.example.login.ui.clases.PeliculaFireBase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import org.w3c.dom.Text
 
 class DetallePelicula : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle_pelicula)
+
+
+
+
 
         val pelicula = intent.getSerializableExtra("pel") as PeliculaFireBase
 
@@ -39,7 +41,6 @@ class DetallePelicula : AppCompatActivity() {
         peliculasInicio
             .get()
             .addOnSuccessListener {
-                //Log.e("help1","link1: ${it.data}")
                 pelicula.IdYouTube=it["IdYouTube"].toString()
                 pelicula.categorias=it["categorias"].toString()
                 pelicula.dondeVer=null
@@ -47,7 +48,32 @@ class DetallePelicula : AppCompatActivity() {
                 pelicula.reparto=null
                 pelicula.sinopsis=it["sinopsis"].toString()
 
-                Log.e("help1","link: ${pelicula}")
+
+                //Reparto
+                val hashReparto = it["reparto"] as HashMap<String,HashMap<String,String>>
+                val arrayReparto= ArrayList<ActorFireBase>()
+                for ((key,value) in hashReparto){
+                    arrayReparto.add(
+                        ActorFireBase(
+                        value["uidActor"],
+                        null,
+                            value["nombre"],
+                            null,
+                            null,
+                            value["imagen"],
+                            value["personaje"]
+                    )
+                    )
+                }
+
+                var reparto = findViewById<RecyclerView>(R.id.recyclerView2)
+                reparto.adapter = PersonaAdapter(arrayReparto, this)
+                reparto.layoutManager = LinearLayoutManager(this,
+                    LinearLayoutManager.HORIZONTAL, false)
+
+
+
+
 
                 var imagenRefTrailer = storage.getReferenceFromUrl(pelicula.portadaTrailer.toString())
 
@@ -75,11 +101,18 @@ class DetallePelicula : AppCompatActivity() {
                 Log.i("help","${categorias}")
 
 
+                var portadaBoton = findViewById<ImageView>(R.id.dpivportada)
+                portadaBoton.setOnClickListener {
+                    startActivity(Intent(this, videoYoutube2::class.java).putExtra("youTubeID",pelicula.IdYouTube) )
+                }
 
             }
             .addOnFailureListener{
 
             }
+
+
+
 
         var dondeVer = findViewById<RecyclerView>(R.id.dpRvDondeVer)
         dondeVer.adapter = AdaptadorDondeVer(dondeVer(),this)

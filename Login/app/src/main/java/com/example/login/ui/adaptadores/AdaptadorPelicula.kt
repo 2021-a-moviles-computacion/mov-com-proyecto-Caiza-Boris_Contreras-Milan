@@ -58,9 +58,6 @@ class AdaptadorPelicula(private var lista: ArrayList<PeliculaFireBase>, val cont
             .into(holder.imagen)
 
 
-
-
-
         //holder.imagen.setImageResource(pelicula.ImagePortada)
         holder.calificacion.text = pelicula.calificacion.toString()
 
@@ -69,18 +66,7 @@ class AdaptadorPelicula(private var lista: ArrayList<PeliculaFireBase>, val cont
             contexto.startActivity(Intent(contexto, DetallePelicula::class.java).putExtra("pel",pelicula) )
 
         }
-        //////Titulo
-        /* holder.titulo.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }
-         //ImagenCertificado
-         holder.imagen_certificado.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }
-         //Certificado
-         holder.certificado.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }*/
+
 
 
     }

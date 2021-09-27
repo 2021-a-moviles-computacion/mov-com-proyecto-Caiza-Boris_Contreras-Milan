@@ -1,19 +1,39 @@
 package com.example.login.ui.adaptadores
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.login.R
+import com.example.login.ui.clases.ActorFireBase
 import com.example.login.ui.clases.Persona
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 
 class PersonaAdapter (
-    val mList: List<Persona>,
-
+    val mList: List<ActorFireBase>,
+    val contexto: Context
     ): RecyclerView.Adapter<PersonaAdapter.ViewPagerViewHolder>(){
-    inner class ViewPagerViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+    inner class ViewPagerViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+        var imagen: ImageView
+        val nombreActor: TextView
+        val nombrePersonaje: TextView
+
+
+
+        init {
+            imagen = itemView.findViewById(R.id.Iv_personaImagen)
+            nombreActor =  itemView.findViewById(R.id.Tv_nombre_persona)
+            nombrePersonaje =  itemView.findViewById(R.id.tv_nombre_persona_pelicula)
+
+
+
+        }
+    }
 
 
     override fun onCreateViewHolder(
@@ -31,15 +51,17 @@ class PersonaAdapter (
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         val curmList = mList[position]
 
-        val fotoActor =  holder.itemView.findViewById<ImageView>(R.id.Iv_personaImagen)
-        fotoActor.setImageResource(curmList.ImagePersona)
+
+        val storage = Firebase.storage
+        var imagenRef = storage.getReferenceFromUrl(curmList.imagen.toString())
 
 
-        val nombreActor =  holder.itemView.findViewById<TextView>(R.id.Tv_nombre_persona)
-        nombreActor.text = curmList.Nombre
+        Glide.with(contexto)
+            .load(imagenRef)
+            .into(holder.imagen)
 
-        val nombrePersonaje =  holder.itemView.findViewById<TextView>(R.id.tv_nombre_persona_pelicula)
-        nombrePersonaje.text = curmList.NombrePersonaje
+        holder.nombreActor.text = curmList.nombre.toString()
+        holder.nombrePersonaje.text = curmList.personaje.toString()
 
 
     }
