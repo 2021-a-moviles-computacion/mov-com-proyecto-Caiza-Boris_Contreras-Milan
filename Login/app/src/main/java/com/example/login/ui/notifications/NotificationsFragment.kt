@@ -37,14 +37,14 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        var context = container!!.context
+      /*  var context = container!!.context
         var recyclerBusquedaPelicula = root.findViewById<RecyclerView>(R.id.dnRvPelicula)
 
         recyclerBusquedaPelicula.layoutManager = LinearLayoutManager(context)
 
         // recyclerStraming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         recyclerBusquedaPelicula.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        recyclerBusquedaPelicula.adapter = AdaptadorPeliculaBusqueda(generarPeliculas(),context)
+        recyclerBusquedaPelicula.adapter = AdaptadorPeliculaBusqueda(generarPeliculas(),context)*/
 
         return root
     }

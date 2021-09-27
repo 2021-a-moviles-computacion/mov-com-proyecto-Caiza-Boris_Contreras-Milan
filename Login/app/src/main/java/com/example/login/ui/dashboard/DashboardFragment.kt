@@ -14,7 +14,10 @@ import com.example.login.R
 import com.example.login.databinding.FragmentDashboardBinding
 import com.example.login.ui.adaptadores.AdaptadorPeliculaBusqueda
 import com.example.login.ui.clases.Pelicula
+import com.example.login.ui.clases.PeliculaFireBase
 import com.example.login.ui.clases.Persona
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -44,30 +47,59 @@ class DashboardFragment : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        //searchview
-
-
+        ////Peliculas
         val context = container!!.context
+        var recyclerPelicula = root.findViewById<RecyclerView>(R.id.fdrvbusquedapeliculas)
 
-        /*sear = root.findViewById(R.id.svbusqueda)
-        sear!!.setOnQueryTextListener(this)*/
-        //////////////Peliculas
-        recyclerBusquedaPelicula = root.findViewById<RecyclerView>(R.id.fdrvbusquedapeliculas)
 
-        recyclerBusquedaPelicula.layoutManager = LinearLayoutManager(context)
+        recyclerPelicula.layoutManager = LinearLayoutManager(context)
+        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
 
-        // recyclerStraming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
-       // generarPeliculas().forEach {
-           // newArrayList.add(it)
-       // }
-        //listatem.addAll(generarPeliculas())
-        recyclerBusquedaPelicula.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        recyclerBusquedaPelicula.adapter = AdaptadorPeliculaBusqueda(generarPeliculas(),context)
+        var listaPeliculas = ArrayList<PeliculaFireBase>()
+
+        val db = Firebase.firestore
+        val peliculasInicio = db.collection("Pelicula")
+
+        peliculasInicio
+            .get()
+            .addOnSuccessListener {
+                for(pelicula in it){
+                    listaPeliculas.add(
+                        PeliculaFireBase(
+                            pelicula["uid_DetallePelicula"].toString(),
+                            null,
+                            pelicula["ano"].toString(),
+                            pelicula["calificacion"].toString().toDouble(),
+                            null,
+                            pelicula["clasificacion"].toString(),
+                            null,
+                            pelicula["duracion"].toString(),
+                            pelicula["nombre"].toString(),
+                            pelicula["imagen"].toString(),
+                            null,
+                            null,
+                            null,
+                        )
+                    )
+
+                }
+
+                //Log.e("firebase","Pelicula1: ${listaPeliculas[0].toString()}")
+                //Log.e("firebase","Pelicula2: ${listaPeliculas[1].toString()}")
+                recyclerPelicula.adapter = AdaptadorPeliculaBusqueda(listaPeliculas,context)
+            }
+            .addOnFailureListener{
+
+            }
+
+
+
+
 
         return root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu,menu)
         val item = menu?.findItem(R.id.search_action)
         val searchview = item?.actionView as SearchView
@@ -96,7 +128,7 @@ class DashboardFragment : Fragment() {
             }
         })
         super.onCreateOptionsMenu(menu, inflater)
-    }
+    }*/
 
     private fun generarPeliculas():ArrayList<Pelicula>{
         var lista = ArrayList<Pelicula>()

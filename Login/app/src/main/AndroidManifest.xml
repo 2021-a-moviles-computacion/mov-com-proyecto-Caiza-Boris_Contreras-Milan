@@ -9,6 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
+
+        <activity
+            android:name=".DetalleSinopsis"
+            android:exported="true" />
+
         <activity
             android:name=".ui.adaptadores.AdaptadorPeliculaBusqueda"
             android:exported="true" />

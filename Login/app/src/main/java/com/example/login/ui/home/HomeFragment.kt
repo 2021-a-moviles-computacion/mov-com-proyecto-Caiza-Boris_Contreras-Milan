@@ -14,7 +14,10 @@ import com.example.login.ui.clases.Persona
 import com.example.login.databinding.FragmentHomeBinding
 import com.example.login.ui.adaptadores.AdaptadorPelicula
 import com.example.login.ui.adaptadores.ViewPagerAdapter2
+import com.example.login.ui.clases.PeliculaFireBase
 import com.example.login.ui.clases.Slide
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class HomeFragment : Fragment() {
 
@@ -41,49 +44,104 @@ class HomeFragment : Fragment() {
 
         ////Slider
 
-        var recyclerPelicula = root.findViewById<RecyclerView>(R.id.rvSlider2)
+        var recyclerSlider = root.findViewById<RecyclerView>(R.id.rvSlider2)
 
 
+        recyclerSlider.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
+        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+        recyclerSlider.adapter = ViewPagerAdapter2(generarSlider(),context)
+
+        //Peliculas
+
+        ////Peliculas
+        var recyclerPelicula = root.findViewById<RecyclerView>(R.id.home_rv_pelicula)
+        var recyclerPelicula2 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula2)
+        var recyclerPelicula3 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula3)
         recyclerPelicula.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.HORIZONTAL, false)
-        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        recyclerPelicula.adapter = ViewPagerAdapter2(generarSlider(),context)
-
-
-        //Pelicula
-        var recyclerSldier = root.findViewById<RecyclerView>(R.id.home_rv_pelicula)
-
-
-        recyclerSldier.layoutManager = LinearLayoutManager(context,
-            LinearLayoutManager.HORIZONTAL, false)
-        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        recyclerSldier.adapter = AdaptadorPelicula(generarPeliculas(),context)
-
-
-        //Pelcula2
-
-        var recyclerPelicula2 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula2)
-
-
         recyclerPelicula2.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.HORIZONTAL, false)
-        // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        recyclerPelicula2.adapter = AdaptadorPelicula(generarPeliculas(),context)
-
-
-        //Pelcula3
-
-        var recyclerPelicular3 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula3)
-
-
-        recyclerPelicular3.layoutManager = LinearLayoutManager(context,
+        recyclerPelicula3.layoutManager = LinearLayoutManager(context,
             LinearLayoutManager.HORIZONTAL, false)
         // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
-        recyclerPelicular3.adapter = AdaptadorPelicula(generarPeliculas(),context)
+
+        var listaPeliculas = ArrayList<PeliculaFireBase>()
+
+        val db = Firebase.firestore
+        val peliculasInicio = db.collection("Pelicula")
+
+        peliculasInicio
+            .get()
+            .addOnSuccessListener {
+                for(pelicula in it){
+                    listaPeliculas.add(
+                        PeliculaFireBase(
+                            pelicula["uid_DetallePelicula"].toString(),
+                            null,
+                            pelicula["ano"].toString(),
+                            pelicula["calificacion"].toString().toDouble(),
+                            null,
+                            pelicula["clasificacion"].toString(),
+                            null,
+                            pelicula["duracion"].toString(),
+                            pelicula["nombre"].toString(),
+                            pelicula["imagen"].toString(),
+                            null,
+                            null,
+                            null,
+                        )
+                    )
+
+                }
+
+                //Log.e("firebase","Pelicula1: ${listaPeliculas[0].toString()}")
+                //Log.e("firebase","Pelicula2: ${listaPeliculas[1].toString()}")
+                recyclerPelicula.adapter = AdaptadorPelicula(listaPeliculas,context)
+                recyclerPelicula2.adapter = AdaptadorPelicula(listaPeliculas,context)
+                recyclerPelicula3.adapter = AdaptadorPelicula(listaPeliculas,context)
+            }
+            .addOnFailureListener{
+
+            }
+
+        /*  //Pelicula
+          var recyclerSldier = root.findViewById<RecyclerView>(R.id.home_rv_pelicula)
 
 
+          recyclerSldier.layoutManager = LinearLayoutManager(context,
+              LinearLayoutManager.HORIZONTAL, false)
+          // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+          recyclerSldier.adapter = AdaptadorPelicula(generarPeliculas(),context)
+
+
+
+
+          //Pelcula2
+
+          var recyclerPelicula2 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula2)
+
+
+          recyclerPelicula2.layoutManager = LinearLayoutManager(context,
+              LinearLayoutManager.HORIZONTAL, false)
+          // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+          recyclerPelicula2.adapter = AdaptadorPelicula(generarPeliculas(),context)
+
+
+          //Pelcula3
+
+          var recyclerPelicular3 = root.findViewById<RecyclerView>(R.id.home_rv_pelicula3)
+
+
+          recyclerPelicular3.layoutManager = LinearLayoutManager(context,
+              LinearLayoutManager.HORIZONTAL, false)
+          // recycler.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
+          recyclerPelicular3.adapter = AdaptadorPelicula(generarPeliculas(),context)
+
+  */
         return root
     }
+
 
 
     private fun generarSlider():ArrayList<Slide>{

@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.login.DetallePelicula
 import com.example.login.R
 import com.example.login.ui.clases.Pelicula
+import com.example.login.ui.clases.PeliculaFireBase
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import java.util.function.Predicate
 
-class AdaptadorPeliculaBusqueda(private var lista: ArrayList<Pelicula>, val contexto: Context) : RecyclerView.Adapter<AdaptadorPeliculaBusqueda.ViewHolder>() {
+class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, val contexto: Context) : RecyclerView.Adapter<AdaptadorPeliculaBusqueda.ViewHolder>() {
 
    // var listaOriginal: ArrayList<Pelicula>?=null
 
@@ -55,12 +59,22 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<Pelicula>, val cont
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pelicula = lista[position]
-        holder.imagen.setImageResource(pelicula.ImagePortada)
-        holder.calificacion.text = pelicula.Calificacion
-        holder.titulo.text = pelicula.Title
-        holder.anio.text = pelicula.Ano
-        holder.clasificacion.text = pelicula.Clasificacion
-        holder.duracion.text = pelicula.Duracion
+        val storage = Firebase.storage
+        var imagenRef = storage.getReferenceFromUrl(pelicula.portadaLink.toString())
+
+
+        Glide.with(contexto)
+            .load(imagenRef)
+            .into(holder.imagen)
+
+
+
+
+        holder.calificacion.text = pelicula.calificacion.toString()
+        holder.titulo.text = pelicula.uid
+        holder.anio.text = pelicula.ano
+        holder.clasificacion.text = pelicula.clasificacion
+        holder.duracion.text = pelicula.duracion
 
         //////Imagen
         holder.imagen.setOnClickListener{
