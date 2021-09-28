@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +30,7 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
         var anio:TextView
         var clasificacion: TextView
         var duracion: TextView
+        var boton: Button
 
 
         init {
@@ -38,6 +40,7 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
             anio = vista.findViewById(R.id.tv_anio)
             clasificacion =  vista.findViewById(R.id.tv_clasifcacion)
             duracion = vista.findViewById(R.id.tv_duracion)
+            boton = vista.findViewById(R.id.tbpBtanadir)
             //listaOriginal!!.addAll(lista)
 
 
@@ -79,6 +82,10 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
         //////Imagen
         holder.imagen.setOnClickListener{
             contexto.startActivity(Intent(contexto, DetallePelicula::class.java).putExtra("pel",pelicula) )
+
+        }
+
+        holder.boton.setOnClickListener {
 
         }
         //////Titulo

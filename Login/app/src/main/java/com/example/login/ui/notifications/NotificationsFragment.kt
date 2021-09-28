@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login.IniciarSesion
 import com.example.login.R
+import com.example.login.Registrarse
 import com.example.login.databinding.FragmentNotificationsBinding
 import com.example.login.ui.adaptadores.AdaptadorPeliculaBusqueda
 import com.example.login.ui.clases.Pelicula
