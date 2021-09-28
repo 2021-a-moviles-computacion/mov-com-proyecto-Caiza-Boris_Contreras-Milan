@@ -33,8 +33,6 @@ class PersonaAdapter (
             nombreActor =  itemView.findViewById(R.id.Tv_nombre_persona)
             nombrePersonaje =  itemView.findViewById(R.id.tv_nombre_persona_pelicula)
 
-
-
         }
     }
 

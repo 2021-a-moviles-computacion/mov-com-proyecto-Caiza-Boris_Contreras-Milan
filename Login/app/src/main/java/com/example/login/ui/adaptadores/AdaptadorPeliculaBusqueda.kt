@@ -151,7 +151,6 @@ fun botonCambiar(holder: ViewHolder){
     if(flagBotton){
         holder.boton.setBackgroundColor(R.color.black)
         holder.boton.setText("AÑADIR")
-        holder.boton.set
         flagBotton=false
     }else{
         holder.boton.setBackgroundColor(R.color.verde)
