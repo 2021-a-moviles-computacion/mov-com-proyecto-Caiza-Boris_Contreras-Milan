@@ -19,16 +19,19 @@
         android:theme="@style/Theme.Login">
         <activity
             android:name=".DetalleActor"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Detalle Actor/Actriz"/>
         <activity
             android:name=".DetalleSinopsis"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Sinopsis"/>
         <activity
             android:name=".ui.adaptadores.AdaptadorPeliculaBusqueda"
             android:exported="true" />
         <activity
             android:name=".DetallePelicula"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Detalle Pelicula"/>
         <activity
             android:name=".videoYoutube2"
             android:exported="true" />

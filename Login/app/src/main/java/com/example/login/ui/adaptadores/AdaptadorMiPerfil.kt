@@ -67,18 +67,6 @@ class AdaptadorMiPerfil(private var lista: ArrayList<Pelicula>, val contexto: Co
             contexto.startActivity(Intent(contexto, DetallePelicula::class.java).putExtra("pel",pelicula) )
 
         }
-        //////Titulo
-        /* holder.titulo.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }
-         //ImagenCertificado
-         holder.imagen_certificado.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }
-         //Certificado
-         holder.certificado.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }*/
 
 
     }

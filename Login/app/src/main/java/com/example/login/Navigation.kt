@@ -33,10 +33,13 @@ class Navigation : AppCompatActivity() {
         val provider2  = bundle?.getString("provider")
         val db  = FirebaseFirestore.getInstance()
 
+        val peliculaAGuardar = hashMapOf<String,Any?>()
+
         db.collection("usuario").document(correo.toString())
             .set(
                 hashMapOf("correo" to correo.toString(),
-                           "provider" to provider2.toString())
+                           "provider" to provider2.toString(),
+                            "peliculas" to peliculaAGuardar)
             )
 
 

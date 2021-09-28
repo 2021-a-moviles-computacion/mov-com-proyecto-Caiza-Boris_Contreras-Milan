@@ -38,8 +38,6 @@ class AdaptadorPeliculaActor(private var lista: ArrayList<PeliculaFireBase>, val
             duracion = vista.findViewById(R.id.ipaTvDuracion)
 
 
-
-
         }
 
 

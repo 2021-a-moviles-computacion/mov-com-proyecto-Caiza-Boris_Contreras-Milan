@@ -2,6 +2,7 @@ package com.example.login.ui.notifications
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +18,14 @@ import com.example.login.IniciarSesion
 import com.example.login.R
 import com.example.login.Registrarse
 import com.example.login.databinding.FragmentNotificationsBinding
+import com.example.login.ui.adaptadores.AdaptadorPelicula
 import com.example.login.ui.adaptadores.AdaptadorPeliculaBusqueda
 import com.example.login.ui.clases.Pelicula
+import com.example.login.ui.clases.PeliculaFireBase
 import com.example.login.ui.clases.Persona
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.io.BufferedReader
 
 class NotificationsFragment : Fragment() {
@@ -43,10 +48,12 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-      /*  var context = container!!.context
-        var recyclerBusquedaPelicula = root.findViewById<RecyclerView>(R.id.dnRvPelicula)
+       var context = container!!.context
 
-        recyclerBusquedaPelicula.layoutManager = LinearLayoutManager(context)
+        var recyclerPeliculaGuardada = root.findViewById<RecyclerView>(R.id.dnRvPelicula)
+        recyclerPeliculaGuardada.layoutManager = LinearLayoutManager(context)
+
+        /* recyclerBusquedaPelicula.layoutManager = LinearLayoutManager(context)
 
         // recyclerStraming.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
         recyclerBusquedaPelicula.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
@@ -58,6 +65,57 @@ class NotificationsFragment : Fragment() {
            startActivity(Intent(activity, IniciarSesion::class.java))
 
         }
+
+
+
+        var arrayPeliculas = ArrayList<PeliculaFireBase>()
+
+        val instanciaAuth = FirebaseAuth.getInstance()
+        val usuarioLocal = instanciaAuth.currentUser
+
+        val db = Firebase.firestore
+
+        Log.i("transaccion", "User : ${usuarioLocal!!.email}")
+        val referencia = db
+            .collection("usuario").document(usuarioLocal!!.email.toString())
+
+        referencia
+            .get()
+            .addOnSuccessListener {
+                var hasPeliculas = it["peliculas"] as HashMap<String,HashMap<String,String>>
+
+                for((key,value) in hasPeliculas){
+                    arrayPeliculas.add(
+                        PeliculaFireBase(
+                            value["uid_DetallePelicula"].toString(),
+                            null,
+                            value["ano"].toString(),
+                            value["calificacion"].toString().toDouble(),
+                            null,
+                            value["clasificacion"].toString(),
+                            null,
+                            value["duracion"].toString(),
+                            value["nombre"].toString(),
+                            value["imagen"].toString(),
+                            null,
+                            null,
+                            null,
+                    )
+                    )
+                }
+                Log.i("HelpUser","array: ${arrayPeliculas}")
+
+
+
+                recyclerPeliculaGuardada.adapter = AdaptadorPeliculaBusqueda(arrayPeliculas,context)
+
+            }
+            .addOnFailureListener{
+
+            }
+
+        //dnRvPelicula
+
 
         return root
     }
@@ -438,3 +496,5 @@ class NotificationsFragment : Fragment() {
         _binding = null
     }
 }
+
+

@@ -47,10 +47,10 @@ class IniciarSesion : AppCompatActivity() {
     }
 
     fun showHome(email: String, provider: ProviderType){
-
         val homeIntent = Intent(this, Navigation::class.java).apply {
             putExtra("email", email )
             putExtra("provider", provider.name)
+
         }
 
         startActivity(homeIntent)

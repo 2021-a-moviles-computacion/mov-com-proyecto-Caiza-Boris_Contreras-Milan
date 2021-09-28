@@ -22,17 +22,10 @@ class AdaptadorDondeVer(private var lista: ArrayList<DondeVer>, val contexto: Co
         val nombre: TextView
 
 
-
         init {
             logo = vista.findViewById(R.id.dvIvImagen)
             nombre = vista.findViewById(R.id.dvTvNombre)
-
-
-
-
         }
-
-
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.itemdondever,parent,false)
@@ -47,29 +40,5 @@ class AdaptadorDondeVer(private var lista: ArrayList<DondeVer>, val contexto: Co
         val dondever = lista[position]
         holder.logo.setImageResource(dondever.portado)
         holder.nombre.text = dondever.nombre
-
-
-        //////Imagen
-      /*  holder.imagen.setOnClickListener{
-            contexto.startActivity(Intent(contexto, DetallePelicula::class.java).putExtra("pel",pelicula) )
-
-        }*/
-        //////Titulo
-        /* holder.titulo.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }
-         //ImagenCertificado
-         holder.imagen_certificado.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }
-         //Certificado
-         holder.certificado.setOnClickListener{
-             contexto.startActivity(Intent(contexto, VisorCalificacion::class.java).putExtra("pel",pelicula) )
-         }*/
-
-
     }
-
-
-
 }
