@@ -1,9 +1,11 @@
 package com.example.login.ui.notifications
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -11,11 +13,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.login.IniciarSesion
 import com.example.login.R
 import com.example.login.databinding.FragmentNotificationsBinding
 import com.example.login.ui.adaptadores.AdaptadorPeliculaBusqueda
 import com.example.login.ui.clases.Pelicula
 import com.example.login.ui.clases.Persona
+import com.google.firebase.auth.FirebaseAuth
+import java.io.BufferedReader
 
 class NotificationsFragment : Fragment() {
 
@@ -46,8 +51,18 @@ class NotificationsFragment : Fragment() {
         recyclerBusquedaPelicula.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         recyclerBusquedaPelicula.adapter = AdaptadorPeliculaBusqueda(generarPeliculas(),context)*/
 
+        var botonSlir = root.findViewById<Button>(R.id.mpBtsalir)
+        botonSlir.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+           startActivity(Intent(activity, IniciarSesion::class.java))
+
+        }
+
         return root
     }
+
+
+
 
     private fun generarPeliculas():ArrayList<Pelicula>{
         var lista = ArrayList<Pelicula>()
