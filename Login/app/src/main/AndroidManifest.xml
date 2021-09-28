@@ -17,11 +17,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Login">
-
+        <activity
+            android:name=".DetalleActor"
+            android:exported="true" />
         <activity
             android:name=".DetalleSinopsis"
             android:exported="true" />
-
         <activity
             android:name=".ui.adaptadores.AdaptadorPeliculaBusqueda"
             android:exported="true" />
@@ -29,8 +30,8 @@
             android:name=".DetallePelicula"
             android:exported="true" />
         <activity
-        android:name=".videoYoutube2"
-        android:exported="true" />
+            android:name=".videoYoutube2"
+            android:exported="true" />
         <activity
             android:name=".RegistrarsePor"
             android:exported="true" />

@@ -1,6 +1,7 @@
 package com.example.login.ui.adaptadores
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.login.DetalleActor
+import com.example.login.DetallePelicula
 import com.example.login.R
 import com.example.login.ui.clases.ActorFireBase
 import com.example.login.ui.clases.Persona
@@ -62,6 +65,12 @@ class PersonaAdapter (
 
         holder.nombreActor.text = curmList.nombre.toString()
         holder.nombrePersonaje.text = curmList.personaje.toString()
+
+
+        holder.imagen.setOnClickListener{
+            contexto.startActivity(Intent(contexto, DetalleActor::class.java).putExtra("actor",curmList) )
+
+        }
 
 
     }

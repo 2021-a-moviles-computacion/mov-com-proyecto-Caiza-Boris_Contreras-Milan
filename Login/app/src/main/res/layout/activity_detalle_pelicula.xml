@@ -88,16 +88,49 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/pl_t_pulp_fiction" />
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButton"
+                    android:layout_width="83dp"
+                    android:layout_height="83dp"
+                    android:layout_marginTop="76dp"
+
+
+                    android:backgroundTint="#2F817C7C"
+
+                    android:clickable="true"
+                    app:backgroundTint="#00FFFFFF"
+                    app:fabCustomSize="83dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.588"
+                    app:maxImageSize="90dp"
+                    app:rippleColor="#00C33333"
+                    app:srcCompat="@drawable/ic_baseline_play"
+                    app:tint="@android:color/white" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@color/gris1">
 
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="41dp"
+                    android:layout_height="79dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/dpTvSinopsis"
+                    app:layout_constraintStart_toEndOf="@+id/dpTvSinopsis"
+                    app:layout_constraintTop_toTopOf="@+id/dpTvSinopsis"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
                 <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/dpivimagen"
-                    android:layout_width="111dp"
-                    android:layout_height="143dp"
+                    android:id="@+id/daIvImagen"
+                    android:layout_width="119dp"
+                    android:layout_height="181dp"
                     android:layout_marginStart="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -111,24 +144,34 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="44dp"
+                    android:layout_marginTop="56dp"
                     android:text="Sinopsis"
                     android:textColor="@color/white"
                     android:textSize="20dp"
-                    app:layout_constraintStart_toEndOf="@+id/dpivimagen"
+                    app:layout_constraintStart_toEndOf="@+id/daIvImagen"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/dpTvSinopsis"
                     android:layout_width="215dp"
                     android:layout_height="81dp"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="8dp"
                     android:text="TextView"
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="@+id/textView14"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/textView14"
                     app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dpRvCategoria"
+                    android:layout_width="255dp"
+                    android:layout_height="38dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView14" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

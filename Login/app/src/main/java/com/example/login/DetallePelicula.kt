@@ -9,11 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.login.ui.adaptadores.AdaptadorCategoria
 import com.example.login.ui.adaptadores.AdaptadorDondeVer
+import com.example.login.ui.adaptadores.AdaptadorPremios
 import com.example.login.ui.adaptadores.PersonaAdapter
-import com.example.login.ui.clases.ActorFireBase
-import com.example.login.ui.clases.DondeVer
-import com.example.login.ui.clases.PeliculaFireBase
+import com.example.login.ui.clases.*
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -31,7 +31,7 @@ class DetallePelicula : AppCompatActivity() {
 
         val storage = Firebase.storage
         var imagenRefPortada = storage.getReferenceFromUrl(pelicula.portadaLink.toString())
-        var imagen = findViewById<ImageView>(R.id.dpivimagen)
+        var imagen = findViewById<ImageView>(R.id.daIvImagen)
         Glide.with(this)
             .load(imagenRefPortada)
             .into(imagen)
@@ -47,6 +47,19 @@ class DetallePelicula : AppCompatActivity() {
                 pelicula.portadaTrailer=it["portadaTrailer"].toString()
                 pelicula.reparto=null
                 pelicula.sinopsis=it["sinopsis"].toString()
+
+
+                //Categoria
+                val arrayPremios= ArrayList<Categoria>()
+                var hashCategoria = it["categorias"] as HashMap<String,Any>
+                hashCategoria.forEach{
+                    arrayPremios.add(Categoria(it.value.toString()))
+                }
+
+                var reparto2 = findViewById<RecyclerView>(R.id.dpRvCategoria)
+                reparto2.adapter = AdaptadorCategoria(arrayPremios, this)
+                reparto2.layoutManager = LinearLayoutManager(this,
+                    LinearLayoutManager.HORIZONTAL, false)
 
 
                 //Reparto
