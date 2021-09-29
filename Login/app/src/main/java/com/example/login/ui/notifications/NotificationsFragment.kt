@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login.IniciarSesion
+import com.example.login.MainActivity
 import com.example.login.R
 import com.example.login.Registrarse
 import com.example.login.databinding.FragmentNotificationsBinding
@@ -63,7 +64,7 @@ class NotificationsFragment : Fragment() {
         var botonSlir = root.findViewById<Button>(R.id.mpBtsalir)
         botonSlir.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-           startActivity(Intent(activity, IniciarSesion::class.java))
+           startActivity(Intent(activity, MainActivity::class.java))
 
         }
 

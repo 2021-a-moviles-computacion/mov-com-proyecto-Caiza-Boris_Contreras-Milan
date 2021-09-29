@@ -26,7 +26,7 @@ class Registrarse : AppCompatActivity() {
 
 
         boton.setOnClickListener {
-            if (usuario.text.isNotBlank() && contasena.text.isNotBlank() && contasena.text == contasena2.text){
+            if (usuario.text.isNotBlank() && contasena.text.isNotBlank() && contasena2.text.isNotBlank()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                     usuario.text.toString(),
                     contasena.text.toString()
