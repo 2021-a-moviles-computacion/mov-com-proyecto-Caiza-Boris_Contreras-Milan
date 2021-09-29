@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="150dp"
+    android:layout_height="290dp"
+    android:layout_margin="4dp"
+    android:background="@drawable/round_corner"
+    tools:layout_editor_absoluteX="4dp"
+    tools:layout_editor_absoluteY="4dp">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/Iv_personaImagen"
+        android:layout_width="151dp"
+        android:layout_height="227dp"
+        android:scaleType="fitStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+
+        app:shapeAppearanceOverlay="@style/roundImage"
+        app:srcCompat="@drawable/pr_scarlet_johanson" />
+
+    <TextView
+        android:id="@+id/Tv_nombre_persona"
+        android:layout_width="134dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Scarlett Johanson"
+        android:textAlignment="textStart"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Iv_personaImagen"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_nombre_persona_pelicula"
+        android:layout_width="134dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="Natasha Romanoff"
+        android:textAlignment="textStart"
+        android:textColor="@color/grisLetras"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Tv_nombre_persona"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

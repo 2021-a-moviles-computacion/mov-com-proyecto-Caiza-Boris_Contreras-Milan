@@ -1,7 +1,8 @@
 # mov-com-proyecto-Caiza-Boris_Contreras-Milan
-Proyecto
-Integrantes:  Caiza Jimenez Boris Javier
-              Contreras Andrade Milan Leonardo
+Proyecto<br>
+Integrantes:  
+Caiza Jimenez Boris Javier<br>
+Contreras Andrade Milan Leonardo
        
 Entrega:
 

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_pelicula"
+    android:layout_width="150dp"
+    android:layout_height="340dp"
+    android:background="@drawable/round_corner"
+    tools:layout_editor_absoluteX="4dp"
+    tools:layout_editor_absoluteY="4dp"
+    android:layout_margin="4dp">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/dapIvImagen"
+        android:layout_width="169dp"
+        android:layout_height="195dp"
+
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+        app:srcCompat="@drawable/pl_p_pulp_fiction" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="145dp"
+        android:layout_height="90dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gradient_bg" />
+
+    <TextView
+        android:textColor="@color/verde"
+        android:id="@+id/ipaTvCalificacion"
+        android:layout_width="33dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/daIvImagen" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ipaTvCalificacion"
+        app:layout_constraintStart_toEndOf="@+id/ipaTvCalificacion"
+        app:layout_constraintTop_toTopOf="@+id/ipaTvCalificacion"
+        app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+
+    <TextView
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:id="@+id/ipaTvTitle"
+        android:layout_width="103dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="112dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/ipaTvAnio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        android:textColor="#BDBDBD"
+        app:layout_constraintEnd_toEndOf="@+id/ipaTvTitle"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/ipaTvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/ipaTvTitle" />
+
+    <TextView
+        android:id="@+id/ipaTvCalasificacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#BDBDBD"
+        app:layout_constraintEnd_toEndOf="@+id/ipaTvAnio"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ipaTvAnio"
+        app:layout_constraintTop_toBottomOf="@+id/ipaTvAnio" />
+
+    <TextView
+        android:id="@+id/ipaTvDuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textColor="#BDBDBD"
+        app:layout_constraintEnd_toEndOf="@+id/ipaTvCalasificacion"
+        app:layout_constraintStart_toStartOf="@+id/ipaTvCalasificacion"
+        app:layout_constraintTop_toBottomOf="@+id/ipaTvCalasificacion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

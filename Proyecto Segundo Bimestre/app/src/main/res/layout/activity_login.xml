@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:background="@color/black">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="144dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        />
+
+    <Button
+        app:cornerRadius="8dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#01DF3A"
+        android:id="@+id/btn_iniciar_sesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="INICiAR SESIÓN"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/btn_registrarse"
+        android:layout_width="145dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="#01DF3A"
+        android:text="Registrate"
+        android:textColor="@color/black"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_iniciar_sesion"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/btn_iniciar_sesion"
+        app:layout_constraintTop_toBottomOf="@+id/btn_iniciar_sesion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

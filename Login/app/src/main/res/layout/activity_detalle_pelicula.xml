@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetallePelicula"
+    android:background="@color/black">
+
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dpTvDuracion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginEnd="120dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dpTvTitulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/dpTvAnio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="120dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dpTvClasificacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginEnd="120dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/dpivportada"
+                    android:layout_width="match_parent"
+                    android:layout_height="268dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/pl_t_pulp_fiction" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingActionButton"
+                    android:layout_width="83dp"
+                    android:layout_height="83dp"
+                    android:layout_marginTop="76dp"
+
+
+                    android:backgroundTint="#2F817C7C"
+
+                    android:clickable="true"
+                    app:backgroundTint="#00FFFFFF"
+                    app:fabCustomSize="83dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.588"
+                    app:maxImageSize="90dp"
+                    app:rippleColor="#00C33333"
+                    app:srcCompat="@drawable/ic_baseline_play"
+                    app:tint="@android:color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/gris1">
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="41dp"
+                    android:layout_height="79dp"
+                    android:layout_marginStart="8dp"
+                    android:backgroundTint="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@+id/dpTvSinopsis"
+                    app:layout_constraintStart_toEndOf="@+id/dpTvSinopsis"
+                    app:layout_constraintTop_toTopOf="@+id/dpTvSinopsis"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/daIvImagen"
+                    android:layout_width="119dp"
+                    android:layout_height="181dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.578"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                    app:srcCompat="@drawable/pl_p_pulp_fiction" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="56dp"
+                    android:text="Sinopsis"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toEndOf="@+id/daIvImagen"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dpTvSinopsis"
+                    android:layout_width="215dp"
+                    android:layout_height="81dp"
+                    android:layout_marginTop="8dp"
+                    android:text="TextView"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/textView14"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView14"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/dpRvCategoria"
+                    android:layout_width="255dp"
+                    android:layout_height="38dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/textView14" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+              >
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="39dp"
+                    android:layout_height="19dp"
+                    android:layout_marginStart="76dp"
+                    android:layout_marginTop="16dp"
+                    android:text="/10"
+                    android:textColor="#A4A4A4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintStart_toEndOf="@+id/textView6"
+                    app:srcCompat="@drawable/ic_baseline_star_rate_24" />
+
+                <Button
+                    android:id="@+id/button2"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="191dp"
+                    android:layout_height="43dp"
+                    android:layout_marginEnd="44dp"
+                    android:drawableStart="@drawable/mas"
+                    android:outlineSpotShadowColor="@color/white"
+                    android:text="Añadir a mi lista"
+                    android:textColor="@color/white"
+                    android:textSize="10dp"
+                    app:icon="@drawable/ic_baseline_mas_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.521"
+                    app:strokeColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/dpTvCalificacion"
+                    android:layout_width="35dp"
+                    android:layout_height="28dp"
+                    android:text="TextView"
+                    android:textColor="@color/verde"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView6"
+                    app:layout_constraintEnd_toStartOf="@+id/textView6"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView6"
+                    app:layout_constraintVertical_bias="0.555" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/separador" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:paddingLeft="20dp"
+                android:textSize="25dp"
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Reparto" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/separador" />
+
+            <TextView
+                android:textColor="@color/white"
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Donde ver"
+                android:paddingLeft="20dp"
+                android:textSize="25dp"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dpRvDondeVer"
+                android:layout_width="match_parent"
+                android:layout_height="278dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
