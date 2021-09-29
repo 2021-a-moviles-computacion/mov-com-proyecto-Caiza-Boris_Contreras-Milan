@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         val botonRegistrarse = findViewById<Button>(R.id.btn_registrarse)
         botonRegistrarse.setOnClickListener {
-            abrirActividad(RegistrarsePor::class.java)
+            abrirActividad(Registrarse::class.java)
         }
     }
 

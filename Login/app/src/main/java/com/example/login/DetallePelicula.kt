@@ -153,28 +153,63 @@ class DetallePelicula : AppCompatActivity() {
             val referencia = db
                 .collection("usuario").document(usuarioLocal!!.email.toString())
 
-            db
-                .runTransaction { transaction ->
-                    val documentoActual = transaction.get(referencia)
-                    val hashPeliculas = documentoActual.get("peliculas") as HashMap<String,Any>
-                    Log.i("transaccion", "hash: ${hashPeliculas}")
-
-                    if(hashPeliculas != {}){
-                        hashPeliculas.put(pelicula.uid.toString(), atributos)
-                        transaction.update(referencia, "peliculas", hashPeliculas)
-                    }else{
-                        transaction.update(referencia, "peliculas", peliculaAGuardar)
-                    }
-
-                }
+            referencia
+                .get()
                 .addOnSuccessListener {
-                    Log.i("transaccion", "Transaccion Completa")
-                }
-                .addOnFailureListener{
-                    Log.i("transaccion", "ERROR")
-                }
+                    if(it["peliculas"] !=null) {
+                        db
+                            .runTransaction { transaction ->
+                                val documentoActual = transaction.get(referencia)
+                                val hashPeliculas =
+                                    documentoActual.get("peliculas") as HashMap<String, Any>
+                                Log.i("transaccion", "hash: ${hashPeliculas}")
 
+                                if (hashPeliculas != {}) {
+                                    hashPeliculas.put(pelicula.uid.toString(), atributos)
+                                    transaction.update(referencia, "peliculas", hashPeliculas)
+                                } else {
+                                    transaction.update(referencia, "peliculas", peliculaAGuardar)
+                                }
 
+                            }
+                            .addOnSuccessListener {
+                                Log.i("transaccion", "Transaccion Completa")
+                            }
+                            .addOnFailureListener {
+                                Log.i("transaccion", "ERROR")
+                            }
+
+                    }else{
+                        val peliculaAGuardar = hashMapOf<String,Any?>()
+
+                        db.collection("usuario").document(usuarioLocal.email.toString())
+                            .set(
+
+                                hashMapOf( "correo" to usuarioLocal.email.toString()
+                                    ,"peliculas" to peliculaAGuardar)
+                            )
+                        db
+                            .runTransaction { transaction ->
+                                val documentoActual = transaction.get(referencia)
+                                val hashPeliculas = documentoActual.get("peliculas") as HashMap<String,Any>
+                                Log.i("transaccion", "hash: ${hashPeliculas}")
+
+                                if(hashPeliculas != {}){
+                                    hashPeliculas.put(pelicula.uid.toString(), atributos)
+                                    transaction.update(referencia, "peliculas", hashPeliculas)
+                                }else{
+                                    transaction.update(referencia, "peliculas", peliculaAGuardar)
+                                }
+
+                            }
+                            .addOnSuccessListener {
+                                Log.i("transaccion", "Transaccion Completa")
+                            }
+                            .addOnFailureListener{
+                                Log.i("transaccion", "ERROR")
+                            }
+
+                    }                    }
         }
 
 

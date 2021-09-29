@@ -23,12 +23,15 @@ import com.google.firebase.storage.ktx.storage
 import java.util.function.Predicate
 import android.R.attr.button
 import android.annotation.SuppressLint
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, val contexto: Context) : RecyclerView.Adapter<AdaptadorPeliculaBusqueda.ViewHolder>() {
 
-   // var listaOriginal: ArrayList<Pelicula>?=null
-    var flagBotton:Boolean = false
+   companion object{
+       var flagBotton:Boolean = false
+   }
+
     inner class ViewHolder( var vista: View) : RecyclerView.ViewHolder(vista) {
 
         var imagen: ImageView
@@ -67,6 +70,7 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
         return lista.size
     }
 
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val pelicula = lista[position]
         val storage = Firebase.storage
@@ -92,9 +96,11 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
 
         }
 
-        holder.boton.setOnClickListener {
 
+        holder.boton.setOnClickListener {
+         flagBotton = false
             botonCambiar(holder)
+
 
             val atributos = hashMapOf<String,String>(
                 "ano" to pelicula.ano.toString(),
@@ -105,6 +111,7 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
                 "nombre" to pelicula.nombre.toString(),
                 "uid_DetallePelicula" to pelicula.uid.toString()
             )
+
 
             val peliculaAGuardar = hashMapOf<String,HashMap<String,String>>(
                 pelicula.uid.toString() to atributos
@@ -119,6 +126,11 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
             Log.i("transaccion", "User : ${usuarioLocal!!.email}")
             val referencia = db
                 .collection("usuario").document(usuarioLocal!!.email.toString())
+
+            referencia
+                .get()
+                .addOnSuccessListener {
+                    if(it["peliculas"] !=null) {
 
             db
                 .runTransaction { transaction ->
@@ -141,18 +153,54 @@ class AdaptadorPeliculaBusqueda(private var lista: ArrayList<PeliculaFireBase>, 
                     Log.i("transaccion", "ERROR")
                 }
 
-                
-        }
+
+        }else{
+                        val peliculaAGuardar = hashMapOf<String,Any?>()
+
+                        db.collection("usuario").document(usuarioLocal.email.toString())
+                            .set(
+
+                                hashMapOf( "correo" to usuarioLocal.email.toString()
+                                    ,"peliculas" to peliculaAGuardar)
+                            )
+                        db
+                            .runTransaction { transaction ->
+                                val documentoActual = transaction.get(referencia)
+                                val hashPeliculas = documentoActual.get("peliculas") as HashMap<String,Any>
+                                Log.i("transaccion", "hash: ${hashPeliculas}")
+
+                                if(hashPeliculas != {}){
+                                    hashPeliculas.put(pelicula.uid.toString(), atributos)
+                                    transaction.update(referencia, "peliculas", hashPeliculas)
+                                }else{
+                                    transaction.update(referencia, "peliculas", peliculaAGuardar)
+                                }
+
+                            }
+                            .addOnSuccessListener {
+                                Log.i("transaccion", "Transaccion Completa")
+                            }
+                            .addOnFailureListener{
+                                Log.i("transaccion", "ERROR")
+                            }
+
+
+
+
+                    }        }
+                    }
 
     }
 
 @SuppressLint("ResourceAsColor")
 fun botonCambiar(holder: ViewHolder){
     if(flagBotton){
+
         holder.boton.setBackgroundColor(R.color.black)
         holder.boton.setText("AÑADIR")
         flagBotton=false
     }else{
+
         holder.boton.setBackgroundColor(R.color.verde)
         holder.boton.setText("GUARDADO")
         flagBotton=true

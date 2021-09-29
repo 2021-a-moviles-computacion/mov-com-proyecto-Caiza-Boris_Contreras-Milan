@@ -22,8 +22,11 @@ class Registrarse : AppCompatActivity() {
         val boton = findViewById<Button>(R.id.aiccrearCuenta)
         val usuario = findViewById<EditText>(R.id.aicetusuario)
         val contasena = findViewById<EditText>(R.id.aicetcontraseña)
+        val contasena2 = findViewById<EditText>(R.id.aicetcontraseña2)
+
+
         boton.setOnClickListener {
-            if (usuario.text.isNotBlank() && contasena.text.isNotBlank()){
+            if (usuario.text.isNotBlank() && contasena.text.isNotBlank() && contasena.text == contasena2.text){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                     usuario.text.toString(),
                     contasena.text.toString()
@@ -34,13 +37,15 @@ class Registrarse : AppCompatActivity() {
                         showAlter()
                     }
                 }
+            }else{
+                showAlter()
             }
         }
     }
     fun showAlter(){
         val builder = AlertDialog.Builder(this)
         builder.setTitle("ERROR")
-        builder.setMessage("Se ha producido un error autenticado al usuario")
+        builder.setMessage("Se ha producido un error almomento de registrar al usuario, verifique que al contraseña sea la misma en los dos campos")
         builder.setPositiveButton("Aceptar", null)
         val dialog: AlertDialog = builder.create()
         dialog.show()

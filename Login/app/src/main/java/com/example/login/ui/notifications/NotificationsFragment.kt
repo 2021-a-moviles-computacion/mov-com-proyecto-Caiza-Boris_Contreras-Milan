@@ -20,6 +20,7 @@ import com.example.login.Registrarse
 import com.example.login.databinding.FragmentNotificationsBinding
 import com.example.login.ui.adaptadores.AdaptadorPelicula
 import com.example.login.ui.adaptadores.AdaptadorPeliculaBusqueda
+import com.example.login.ui.adaptadores.AdaptadorPeliculaMiPerfil
 import com.example.login.ui.clases.Pelicula
 import com.example.login.ui.clases.PeliculaFireBase
 import com.example.login.ui.clases.Persona
@@ -79,35 +80,44 @@ class NotificationsFragment : Fragment() {
         val referencia = db
             .collection("usuario").document(usuarioLocal!!.email.toString())
 
+
+
         referencia
             .get()
             .addOnSuccessListener {
-                var hasPeliculas = it["peliculas"] as HashMap<String,HashMap<String,String>>
+                if(it["peliculas"] !=null) {
+                    var hasPeliculas = it["peliculas"] as HashMap<String, HashMap<String, String>>
 
-                for((key,value) in hasPeliculas){
-                    arrayPeliculas.add(
-                        PeliculaFireBase(
-                            value["uid_DetallePelicula"].toString(),
-                            null,
-                            value["ano"].toString(),
-                            value["calificacion"].toString().toDouble(),
-                            null,
-                            value["clasificacion"].toString(),
-                            null,
-                            value["duracion"].toString(),
-                            value["nombre"].toString(),
-                            value["imagen"].toString(),
-                            null,
-                            null,
-                            null,
-                    )
-                    )
+                    for ((key, value) in hasPeliculas) {
+                        arrayPeliculas.add(
+                            PeliculaFireBase(
+                                value["uid_DetallePelicula"].toString(),
+                                null,
+                                value["ano"].toString(),
+                                value["calificacion"].toString().toDouble(),
+                                null,
+                                value["clasificacion"].toString(),
+                                null,
+                                value["duracion"].toString(),
+                                value["nombre"].toString(),
+                                value["imagen"].toString(),
+                                null,
+                                null,
+                                null,
+                            )
+                        )
+                    }
+                }else{
+
+
+
                 }
                 Log.i("HelpUser","array: ${arrayPeliculas}")
 
 
 
-                recyclerPeliculaGuardada.adapter = AdaptadorPeliculaBusqueda(arrayPeliculas,context)
+                recyclerPeliculaGuardada.adapter = AdaptadorPeliculaMiPerfil(arrayPeliculas,context)
+
 
             }
             .addOnFailureListener{

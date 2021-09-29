@@ -1,15 +1,22 @@
 package com.example.login
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class IniciarSesion : AppCompatActivity() {
+    val CODIGO_INICIO_SESION = 102
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_iniciar_sesion)
 
@@ -35,6 +42,30 @@ class IniciarSesion : AppCompatActivity() {
             }
         }
     }
+
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            CODIGO_INICIO_SESION -> {
+                if (resultCode == Activity.RESULT_OK) {
+                    val usuario: IdpResponse? = IdpResponse.fromResultIntent(data)
+                    if (usuario != null) {
+                        if (usuario.isNewUser == true) {
+                            Log.i("firebase-login", "Nuevo Usuario")
+                        } else {
+                            Log.i("firebase-login", "Usuario Antiguo")
+                        }
+                    }
+                } else {
+                    Log.i("firebase-login", "El usuario cancelo")
+                }
+            }
+        }
+    }
+
+
 
 
     fun showAlter(){
